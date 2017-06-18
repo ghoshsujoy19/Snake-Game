@@ -1,0 +1,59 @@
+<html>
+<head>
+<link rel ="stylesheet" href="style/main_ss.css"  />
+</head>
+<body>
+	<div id="welcome">Welcome to the</div>
+	<div id="wel2">Snake Game</div><br><br><br>
+	<div id= "options"><label id = "more" onclick="clickedButton1()">      New Game      </label></div>
+	<div id= "options"><label id = "more" style="" onclick="clickedButton5()" >      Instructions     </label></div>
+	<div id= "options"><label id = "more" onclick="clickedButton3()">  About the Developer </label></div>
+	<div id= "options"><label id = "more" onclick="clickedButton4()">    About the Game   </label></div>
+	<script type="text/javascript" language="JavaScript" >
+		var clicked=0;
+      function clickedButton1()
+            {
+
+                window.location = "levels and others/general.html";
+
+            }
+		function clickedButton5() {
+				clicked = (clicked +1)%2;
+				if (clicked !=0 ) {
+					document.getElementById("instructions").style.display = "block";
+					document.getElementById("points").style.display = "block";
+				}else {
+					document.getElementById("instructions").style.display = "none";
+					document.getElementById("points").style.display = "none";
+
+				}
+				
+		}
+      function clickedButton3()
+            {
+
+                window.location = 'levels and others/about_me.html'
+
+            }
+      function clickedButton4()
+            {
+
+                window.location = 'levels and others/about_game.html'
+
+            }
+   </script>
+   <br><br>
+   <div id="ins"><p id="instructions" style="display:none">Following are the instructions of playing the game : 
+   <ul id="points" style="display:none">
+		<li>Use the arrow keys to move the snake. </li>
+		<li>There are 6 levels and there are minimum points to pass a level.</li>
+		<li>When you get the required minimum points,you will automatically be asked for progressing onto next level</li>
+		<li>Do keep in mind that the snake cannot cross the boundaries.</li>
+		<li>The snake cannot cross the walls.</li>
+		<li>If you hit a wall or boundary,the game will be over</li>
+   </ul>
+	</p>
+   </div>
+  
+</body>
+</html>
