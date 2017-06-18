@@ -1,0 +1,99 @@
+#more {
+	background-color: #90EE90;
+	font-family: cursive;
+	font-weight: bold;
+	font-size: 30;
+	background-position: center center;
+	cursor: pointer ;
+	word-spacing: 3;
+	text-align: center ;
+	color: blue;
+	border-style: outset; 
+	
+}
+#more:hover
+{
+	border-width: 10px ;
+	border-color: #FFA500;
+}
+body {
+	background-color: #E5E5E5;
+}
+
+#options {
+	background-color: #90EE90;
+	text-align: center;
+	padding: 15;
+	white-space: pre;
+}
+
+#welcome {
+	background-color: #ADD8E6;
+	text-align: center;
+	border-left-style: solid;
+	border-left-width: 5;
+	border-left-color: #A52A2A;
+	border-top-right-radius: 2;
+	border-right-style: solid;
+	border-right-width: 5;
+	border-right-color: #A52A2A;
+	border-top-left-radius: 2;
+	border-top-style: ridge;
+	border-top-color: #A52A2A;
+	border-top-width: 3;
+	text-decoration: blink;
+	font-family: Zapf-Chancery, cursive;
+	font-size: 55;
+	font-weight: bolder;
+	vertical-align: middle;
+	color: orange;
+}
+#wel2 {
+	background-color: #ADD8E6;
+	text-align: center;
+	border-left-style: solid;
+	border-left-width: 5;
+	border-left-color: #A52A2A;
+	border-bottom-right-radius: 2;
+	border-right-style: solid;
+	border-right-width: 5;
+	border-right-color: #A52A2A;
+	border-bottom-left-radius: 2;
+	border-bottom-style: ridge;
+	border-bottom-color: #A52A2A;
+	border-bottom-width: 3;
+	text-decoration: blink;
+	font-family: Zapf-Chancery, cursive;
+	font-size: 55;
+	font-weight: bolder;
+	vertical-align: middle;
+	color: orange;
+}
+
+#ins {
+	text-align: center;
+	padding: 15;
+	
+}
+#points {
+	background-color: #90D4EE;
+	font-family: cursive;
+	font-size: 20;
+	background-position: center center;
+	word-spacing: 3;
+	text-align: center ;
+	color: #3700FF; 
+	
+}
+#instructions {
+	background-color: #90D4EE;
+	font-family: cursive;
+	font-weight: bold;
+	font-size: 30;
+	background-position: center center;
+	word-spacing: 3;
+	text-align: center ;
+	color: #FF0000; 
+	
+}
+

@@ -1,0 +1,144 @@
+#points {
+	background-color: #90EE90;
+	text-align: center;
+	padding: 15;
+	font-family: cursive;
+	font-size: 30;
+	background-position: center center;
+	word-spacing: 3;
+	text-align: center ;
+	color: #3700FF;
+	white-space: pre;
+}
+
+#goback {
+	background-color: #90EE90;
+	text-align: center;
+	padding: 15;
+	font-family: cursive;
+	font-size: 30;
+	background-position: center center;
+	word-spacing: 3;
+	text-align: center ;
+	color: #3700FF;
+	white-space: pre;
+}
+
+#goford {
+	background-color: #90EE90;
+	text-align: center;
+	padding: 15;
+	font-family: cursive;
+	font-size: 30;
+	background-position: center center;
+	word-spacing: 3;
+	text-align: center ;
+	color: #3700FF;
+	white-space: pre;
+}
+
+#st {
+	background-color: #90EE90;
+	font-family: cursive;
+	font-weight: bold;
+	font-size: 30;
+	background-position: center center;
+	cursor: pointer ;
+	word-spacing: 3;
+	text-align: center ;
+	color: blue;
+	border-style: outset; 
+	
+}
+#st:hover
+{
+	border-width: 10px ;
+	border-color: #FFA500;
+}
+
+#st1 {
+	background-color: #90EE90;
+	font-family: cursive;
+	font-weight: bold;
+	font-size: 30;
+	background-position: center center;
+	cursor: pointer ;
+	word-spacing: 3;
+	text-align: center ;
+	color: blue;
+	border-style: outset; 
+	
+}
+#st1:hover
+{
+	border-width: 10px ;
+	border-color: #FFA500;
+}
+#st2 {
+	background-color: #90EE90;
+	font-family: cursive;
+	font-weight: bold;
+	font-size: 30;
+	background-position: center center;
+	cursor: pointer ;
+	word-spacing: 3;
+	text-align: center ;
+	color: blue;
+	border-style: outset; 
+	
+}
+#st2:hover
+{
+	border-width: 10px ;
+	border-color: #FFA500;
+}
+#starting {
+	background-color: #90EE90;
+	text-align: center;
+	font-family: cursive;
+	font-size: 30;
+	background-position: center center;
+	word-spacing: 3;
+	text-align: center ;
+	color: #3700FF;
+	white-space: pre;
+	
+}
+#welcome {
+
+	background-color: #ADD8E6;
+	text-align: center;
+	font-family: Zapf-Chancery, cursive;
+	font-size: 40;
+	font-weight: normal;
+	vertical-align: middle;
+	color: orange;
+}
+body {
+	background-color: #E5E5E5;
+}
+#canvas {
+	border-style: inset;
+	border-width: 3;
+	display: block;
+	padding: 0;
+}
+#maingame {
+		width: 750px;
+      height: 750px;
+      
+      background-size: auto 750px;
+      background-repeat: no-repeat;
+      background-color: lightblue;
+      background-position: center center;
+      padding: 0;
+		margin: 0 auto 0 auto;
+    	display: block;
+    	padding: 0;
+    }
+#note {
+	background-color: #90EE90;
+	text-align: center;
+	font-family: cursive;
+	font-size: 15;
+}
