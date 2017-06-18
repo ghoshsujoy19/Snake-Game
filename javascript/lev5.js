@@ -1,0 +1,227 @@
+
+var drawModule = (function () { 
+
+  var bodySnake = function(x, y) {
+  	if (pfoodtype == 20) {
+        ctx.fillStyle = 'green';
+        ctx.fillRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
+     }
+     else if (pfoodtype==6) {
+        ctx.fillStyle = 'yellow';
+        ctx.fillRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
+     }
+     else if (pfoodtype==3) {
+     	  ctx.fillStyle = 'blue';
+        ctx.fillRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
+     }
+     else {
+     	  ctx.fillStyle = 'red';
+        ctx.fillRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
+     }
+        ctx.strokeStyle = 'darkgreen';
+        ctx.strokeRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
+  }
+
+  var pizza2 = function(x, y) {
+  		  ctx.fillStyle = 'blue';
+        ctx.fillRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
+        ctx.fillStyle = 'yellow';
+        ctx.fillRect(x*snakeSize+1, y*snakeSize+1, (snakeSize-2), (snakeSize-2));
+  }
+	
+	var pizza1 = function(x, y) {
+        ctx.fillStyle = 'yellow';
+        ctx.fillRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
+        ctx.fillStyle = 'blue';
+        ctx.fillRect(x*snakeSize+1, y*snakeSize+1, snakeSize-2, snakeSize-2);
+  }
+  var pizza = function(x, y) {
+        ctx.fillStyle = 'yellow';
+        ctx.fillRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
+        ctx.fillStyle = 'red';
+        ctx.fillRect(x*snakeSize+1, y*snakeSize+1, snakeSize-2, snakeSize-2);
+  }
+
+
+  var drawSnake = function() {
+      var length = 4;
+      snake = [];
+      for (var i = length-1; i>=0; i--) {
+          snake.push({x:i, y:0});
+      }  
+  }
+    
+  paint = function(){
+      ctx.fillStyle = 'lightgrey';
+      ctx.fillRect(0, 0, w, h);
+      ctx.strokeStyle = 'black';
+      ctx.strokeRect(0, 0, w, h);
+
+		
+      var snakeX = snake[0].x;
+      var snakeY = snake[0].y;
+
+      if (direction == 'right') { 
+        snakeX=(snakeX+1)%50; }
+      else if (direction == 'left') { 
+        snakeX=(snakeX+49)%50; }
+      else if (direction == 'up') { 
+        snakeY=(snakeY+49)%50; 
+      } else if(direction == 'down') { 
+        snakeY=(snakeY+1)%50; }
+
+      if (checkCollision(snakeX, snakeY, wall_arrayh) || checkCollision(snakeX,snakeY,snake) || checkCollision(snakeX, snakeY, wall_arrayv) ) {
+          //restart game
+          
+			document.getElementById("goback").style.display = "block";
+			document.getElementById("maingame").style.display = "none";
+			document.getElementById("points").style.display = "none";
+			document.getElementById("note").style.display = "none"; 
+			document.getElementById("goford").style.display = "none";
+         ctx.clearRect(0,0,w,h);
+         gameloop = clearInterval(gameloop);
+         return;          
+        }
+        if(score >= toScore)
+          {
+					document.getElementById("goford").style.display = "block";
+					document.getElementById("maingame").style.display = "none";
+					document.getElementById("points").style.display = "none";
+					document.getElementById("note").style.display = "none";
+					document.getElementById("goback").style.display = "none";
+          }
+        if(snakeX == food.x && snakeY == food.y) {
+          var tail = {x: snakeX, y: snakeY}; //Create a new head instead of moving the tail
+          if(foodtype==6)
+        {
+				 score = score + 20;
+        }
+        if (foodtype==3) { 
+        		score = score +15 ;
+        	}
+        	if (foodtype!= 6 && foodtype!= 3) {
+        		score = score + 10;
+        	}
+          document.getElementById("current_score").innerHTML = "  "+score+"   " ;
+          visited = false;
+          createFood(); //Create new food
+        } else {
+          var tail = snake.pop(); //pops out the last cell
+          tail.x = snakeX; 
+          tail.y = snakeY;
+        }
+        //The snake can now eat the food.
+        snake.unshift(tail); //puts back the tail as the first cell
+
+        for(var i = 0; i < snake.length; i++) {
+          bodySnake(snake[i].x, snake[i].y);
+        } 
+        if(!visited){
+        	pfoodtype = foodtype;
+        foodtype = Math.round(Math.random()*10);
+        visited = true;
+     }
+        if(foodtype==6)
+        {
+				 pizza2(food.x, food.y);
+        }
+        if (foodtype==3) { 
+        		pizza1(food.x,food.y);
+        	}
+        	if (foodtype!= 6 && foodtype!= 3) {
+        		pizza(food.x,food.y);
+        	}
+        	create_wall_horizontal();
+			create_wall_vertical();
+  }
+
+  var createFood = function() {
+      food = {
+        x: Math.floor((Math.random() * 49) + 1),
+        y: Math.floor((Math.random() * 49) + 1)
+      }
+		if (food.y == 10){ food.y--; }
+		if (food.y == 39){ food.y++; }
+		if (food.x == 25 ) {food.x++;}
+      for (var i=0; i>snake.length; i++) {
+        var snakeX = snake[i].x;
+        var snakeY = snake[i].y;
+      
+        if (food.x===snakeX && food.y === snakeY || food.y === snakeY && food.x===snakeX) {
+          food.x = Math.floor((Math.random() * 49) + 1);
+          food.y = Math.floor((Math.random() * 49) + 1);
+        }
+      }
+  }
+
+var create_wall_horizontal = function() {
+		var length = 44;
+		var randomx = 3;
+		var randomy = 10;
+		ctx.fillStyle = "black";
+		ctx.fillRect(randomx*snakeSize,randomy*snakeSize,length*snakeSize,snakeSize);
+		if(!hwallvisit){
+		for (var i = length - 1; i >= 0; i--)
+		{
+			wall_arrayh.push({x:randomx + i, y: randomy});
+		}}
+		
+		randomy = 39 ;
+		ctx.fillStyle = "black";
+		ctx.fillRect(randomx*snakeSize,randomy*snakeSize,length*snakeSize,snakeSize);
+		if (!hwallvisit) {
+		for (var i = length - 1; i >= 0; i--)
+		{
+			wall_arrayh.push({x: randomx + i, y: randomy});
+		}}
+		hwallvisit = true;
+}
+var create_wall_vertical = function() {
+		var length = 25;
+		var randomx = 25;
+		var randomy = 13;
+		ctx.fillStyle = "black";
+		ctx.fillRect(randomx*snakeSize,randomy*snakeSize,snakeSize,length*snakeSize);
+		if(!vwallvisit){
+		for (var i = length - 1; i >= 0; i--)
+		{
+			wall_arrayh.push({x:randomx , y: randomy+i});
+		}}
+		
+		vwallvisit = true;
+		
+}
+gamePaused	= function() {
+		if (!p) {
+			gameloop = clearInterval(gameloop);
+			p = true;
+		}
+		else {
+			gameloop = setInterval(paint,80);
+			p = false;
+		}
+	}
+
+  var checkCollision = function(x, y, array) {
+      for(var i = 0; i < array.length; i++) {
+        if(array[i].x === x && array[i].y === y)
+        return true;
+      } 
+      return false;
+  }
+
+  var init = function(){
+      direction = 'down';
+      drawSnake();
+      createFood();
+      toScore = 300;
+      gameloop = setInterval(paint, 80);
+  }
+
+
+    return {
+      init : init
+    };
+
+    
+}());
