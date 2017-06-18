@@ -1,0 +1,40 @@
+<html>
+<head>
+	<link rel="stylesheet" href="../style/ss_for_levels.css" />
+</head>
+<body>
+	<div id="welcome">Welcome to Level - <b id = "lev"> 5 </b> of the game.</div>
+	<br><br>
+	<div id = "starting" >Press <label id="st" onclick="todo()"> START </label> to Start level-5</div>
+	<div id="maingame" style = "display:none" >
+		<canvas id="canvas" height="750" width="750">
+			Sorry your Browser doesn't support canvas.
+		</canvas>
+	</div><br><br>
+	<div id="points" style="display:none">Your Score : <label id="current_score">   0   </label>Minimum Score to <b id="sc">WIN</b> : <label id="min_points">  300  </label></div>
+	<div id="goback" style="display:none">You failed to reach next level..Press <label id="st1" onclick="togomain()"> OK </label>to go to Main menu.</div>
+	<div id="goford" style="display:none">You have completed this level..Press <label id="st2" onclick="togonext()"> OK </label>to go to next Level.</div>
+	<div id="note" style="display:none">Press <b>Spacebar</b> to pause/unpause</div>
+	
+	<script type="text/javascript" >
+		function todo() {
+			
+			document.getElementById("starting").style.display = "none";
+			document.getElementById("maingame").style.display = "block";
+			document.getElementById("points").style.display = "block";
+			document.getElementById("maingame").style.paddingLeft = "0";
+			document.getElementById("maingame").style.paddingRight = "0";
+			document.getElementById("note").style.display = "block";
+		}
+		function togonext() {
+			window.location = "level-6.html";
+		}
+		function togomain() {
+			window.location = "../main.html";
+		}
+	</script>
+   <script src="../javascript/variables.js"></script>
+   <script src="../javascript/lev5.js"></script>
+   <script src="../javascript/keyboard.js"></script>
+</body>
+</html>
