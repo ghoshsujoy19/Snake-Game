@@ -9,14 +9,14 @@ Snake Game
 
 ## Getting Started
 
-   Just download the .zip file ,extract it in an folder/home directory.
+   Just download the .zip file ,extract it in a folder/home directory.
 
 
 
 ### Prerequisites
 
    All you need is a web browser which supports HTML canvas.
-   [Click](https://www.w3schools.com/html/html5_canvas.asp/) to know more about browser supporting Canvas. 
+   [Click](https://www.w3schools.com/html/html5_canvas.asp/) to know more about browsers supporting Canvas. 
 
 
 ### Running the file
